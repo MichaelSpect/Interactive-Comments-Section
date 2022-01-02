@@ -7,7 +7,7 @@ const commentContainer = document.querySelector(".single-comment");
 ////////////////
 const dynamicHTML = function (element, activeUser) {
   const replyingTo = `<span class="replying-to">@${element.replyingTo} </span>`;
-  const regularHeaderMarkUp = `
+  const regularHeaderMarkUp = `<header class="comment-header">
     <div class="header-left">
       <div class="user-avatar">
         <img
@@ -21,19 +21,21 @@ const dynamicHTML = function (element, activeUser) {
     <div class="header-right header-reply" data-reply-to="@${element.user.username}.  ">
     <img src="./images/icon-reply.svg" alt="img-reply" />
       <div class="call-action reply" >Reply</div>
-    </div>`;
-  const userHeaderMarkUp = `
-    <div class="header-left">
-      <div class="user-avatar">
-        <img
-          src=${element.user.image.png}
-          alt="user-avatar"
-        />
-      </div>
-      <div class="user-name">${element.user.username}<span>you</span></div>
-      <div class="date-created">${element.createdAt}</div>
     </div>
-    <div class="header-right user-edit">
+    
+  </header>`;
+  const userHeaderMarkUp = `<header class="comment-header">
+        <div class="header-left">
+          <div class="user-avatar">
+            <img
+              src=${element.user.image.png}
+              alt="user-avatar"
+            />
+          </div>
+          <div class="user-name">${element.user.username}<span>you</span></div>
+          <div class="date-created">${element.createdAt}</div>
+        </div>
+          <div class="header-right user-edit">
               <div class="delete">
                 <img src="./images/icon-delete.svg" alt="" />
                 <div class="call-action delete">Delete</div>
@@ -42,7 +44,8 @@ const dynamicHTML = function (element, activeUser) {
                 <img src="./images/icon-edit.svg" alt="img-edit" />
                 <div class="call-action edit">Edit</div>
               </div>
-          </div>`;
+          </div>
+  </header>`;
   const updateBtn = `<button class="button update-btn">UPDATE</button>`;
   const userContentMarkUp = `<section class="comment-content">
     ${element.replyingTo ? replyingTo + element.content : element.content}
@@ -54,12 +57,14 @@ const dynamicHTML = function (element, activeUser) {
   <div class="msg-score">${element.score}</div>
   <img src="./images/icon-minus.svg" alt="img-minus" />
 </div>
+<div class="comment-row">
   ${
     activeUser === element.user.username
       ? userHeaderMarkUp
       : regularHeaderMarkUp
   }
-  ${userContentMarkUp}`;
+  ${userContentMarkUp}
+</div>`;
   return singleMsgHTML;
 };
 
@@ -131,8 +136,8 @@ const addEventListeners = function () {
     // console.log(event.target);
     if (event.target.closest(".user-edit")) {
       const parent = event.target.closest(".single-comment");
-      console.log(parent);
-      console.log("BINGO!!!!");
+      // console.log(parent);
+      // console.log("BINGO!!!!");
       const updateBtn = document.createElement("button");
       updateBtn.classList = "button update-btn";
       updateBtn.innerText = "UPDATE";
