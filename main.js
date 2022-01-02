@@ -25,17 +25,17 @@ const dynamicHTML = function (element, activeUser) {
     
   </header>`;
   const userHeaderMarkUp = `<header class="comment-header">
-    <div class="header-left">
-      <div class="user-avatar">
-        <img
-          src=${element.user.image.png}
-          alt="user-avatar"
-        />
-      </div>
-      <div class="user-name">${element.user.username}<span>you</span></div>
-      <div class="date-created">${element.createdAt}</div>
-    </div>
-    <div class="header-right user-edit">
+        <div class="header-left">
+          <div class="user-avatar">
+            <img
+              src=${element.user.image.png}
+              alt="user-avatar"
+            />
+          </div>
+          <div class="user-name">${element.user.username}<span>you</span></div>
+          <div class="date-created">${element.createdAt}</div>
+        </div>
+          <div class="header-right user-edit">
               <div class="delete">
                 <img src="./images/icon-delete.svg" alt="" />
                 <div class="call-action delete">Delete</div>
@@ -136,8 +136,8 @@ const addEventListeners = function () {
     // console.log(event.target);
     if (event.target.closest(".user-edit")) {
       const parent = event.target.closest(".single-comment");
-      console.log(parent);
-      console.log("BINGO!!!!");
+      // console.log(parent);
+      // console.log("BINGO!!!!");
       const updateBtn = document.createElement("button");
       updateBtn.classList = "button update-btn";
       updateBtn.innerText = "UPDATE";
