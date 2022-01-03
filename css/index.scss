@@ -42,8 +42,9 @@ $color-white: hsl(0, 0%, 100%);
     margin-left: 25px;
     padding-left: 25px;
     border-left: 2px solid $color-neutral-light-gray;
+    margin-bottom: 15px;
   }
-  // SINGLE COMMENT - MSG GRID LAYOUT
+
   .single-comment {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -116,7 +117,7 @@ $color-white: hsl(0, 0%, 100%);
       }
     }
   }
-
+  // COMMENT
   .single-comment {
     background-color: $color-white;
     color: $color-neutral-grayish;
@@ -222,6 +223,11 @@ $color-white: hsl(0, 0%, 100%);
     }
     // }
   }
+  .single-comment.reply-msg {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 // HOVER
 .header-right,
@@ -260,21 +266,6 @@ button {
     color: $color-neutral-grayish;
     font-size: 16px;
   }
-  @media (max-width: 650px) {
-    // flex-direction: column-reverse;
-
-    // .user-avatar {
-    //   order: 2;
-    // }
-    // .new-content {
-    // }
-    button {
-      // align-self: flex-end;
-      // position: absolute;
-      // bottom: 25px;
-      // right: 15px;
-    }
-  }
 }
 //   Content Editable
 .msg-editable {
@@ -300,4 +291,5 @@ button {
 // [placeholder]:empty:focus::before {
 //   content: "";
 // }
+
 // Add Mouse Pointer on Hover

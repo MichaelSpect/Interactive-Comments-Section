@@ -101,7 +101,7 @@ const renderComments = function (data) {
     divSingleMsg.innerHTML = dynamicHTML(item, activeUser);
     commentsList.appendChild(divSingleMsg);
 
-    if (item.replies) {
+    if (item.replies.length > 0) {
       const sectionReply = document.createElement("section");
       sectionReply.classList = "section-reply";
       commentsList.appendChild(sectionReply);

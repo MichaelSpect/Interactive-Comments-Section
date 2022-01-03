@@ -47,6 +47,7 @@
   margin-left: 25px;
   padding-left: 25px;
   border-left: 2px solid #eaecf1;
+  margin-bottom: 15px;
 }
 
 .comments-list .single-comment {
@@ -306,6 +307,10 @@
 .comments-list .single-comment .new-content.msg-editable span {
   color: #5457b6;
   font-weight: 500;
+}
+
+.comments-list .single-comment.reply-msg:last-child {
+  margin-bottom: 0;
 }
 
 .header-right:hover,
