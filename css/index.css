@@ -90,6 +90,12 @@
   grid-column: 2 / -1;
 }
 
+.comments-list .single-comment .update-btn {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  grid-column: 3 / -1;
+}
+
 @media (max-width: 650px) {
   .comments-list .single-comment {
     -ms-grid-columns: auto auto;
@@ -124,12 +130,44 @@
     grid-row: 2 / 3;
     grid-column: 1 / -1;
   }
+  .comments-list .single-comment .update-btn {
+    -ms-grid-column-align: end;
+        justify-self: end;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    grid-row: 5 / 6;
+  }
+  .comments-list .single-comment.new-msg {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .comments-list .single-comment.new-msg .user-avatar {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+  }
+  .comments-list .single-comment.new-msg .send-btn {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+    -ms-grid-column-align: end;
+        justify-self: end;
+  }
+  .comments-list .single-comment.new-msg .new-content {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+  }
 }
 
 .comments-list .single-comment {
   background-color: white;
   color: #67727e;
-  position: relative;
   width: 100%;
   padding: 20px;
   border-radius: 7px;
@@ -230,11 +268,6 @@
   gap: 5px;
 }
 
-.comments-list .single-comment .header-right:hover,
-.comments-list .single-comment .header-right.user-edit:hover {
-  cursor: pointer;
-}
-
 .comments-list .single-comment .header-right .call-action,
 .comments-list .single-comment .header-right.user-edit .call-action {
   font-weight: 500;
@@ -254,6 +287,13 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 5px;
+}
+
+.comments-list .single-comment .header-right .edit:hover,
+.comments-list .single-comment .header-right .delete:hover,
+.comments-list .single-comment .header-right.user-edit .edit:hover,
+.comments-list .single-comment .header-right.user-edit .delete:hover {
+  cursor: pointer;
 }
 
 .comments-list .single-comment .header-right .delete,
@@ -276,16 +316,17 @@
 button {
   background-color: #5457b6;
   color: white;
+  width: 80px;
   font-weight: 500;
   border: none;
-  padding: 10px 25px;
+  padding: 10px 0px;
   border-radius: 7px;
 }
 
 .single-comment.new-msg {
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: flex-start;
+          align-items: start;
 }
 
 .single-comment.new-msg textarea {
@@ -300,20 +341,6 @@ button {
   font-family: "Rubik", sans-serif;
   color: #67727e;
   font-size: 16px;
-}
-
-@media (max-width: 650px) {
-  .single-comment.new-msg {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-  .single-comment.new-msg button {
-    position: absolute;
-    bottom: 25px;
-    right: 15px;
-  }
 }
 
 .msg-editable {
@@ -334,12 +361,4 @@ button {
 
 .msg-editable:focus::after {
   content: "  ";
-}
-
-[placeholder]:empty::before {
-  content: attr(placeholder);
-}
-
-[placeholder]:empty:focus::before {
-  content: "";
 }
